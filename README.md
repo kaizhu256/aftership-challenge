@@ -6,6 +6,18 @@
 - revamped lib/test.js to account for asynchronous tests
 - added automated travis-ci testing
 - most of the implementation code is located in lib/trackAsync.js
+- expand test case to include:
+  - usps('9102999999302024326992')
+  - usps('9405903699300184125060')
+  - usps('9400109699939938223564')
+  - usps('9374889949033131111143')
+  - hkpost('RC933607107HK')
+  - hkpost('RT224265042HK')
+  - hkpost('LK059460815HK')
+  - dpduk('15502370264989N')
+  - dpduk('15501498140350')
+  - dpduk('15501733652085')
+  - dpduk('07081002031105O')
 
 The goal of this challenge is to get the tracking information from the courier's system.
 

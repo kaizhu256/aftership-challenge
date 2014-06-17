@@ -203,6 +203,47 @@ describe('Test: .is', function() {
   /* set timeout for tests in ms */
   this.timeout(30000)
 
+  describe('Track @ usps(\'9102999999302024326992\')', function() {
+
+    var usps = local.jsonStringifyOrdered({ checkpoints: [
+      { checkpoint_time: '2014-01-15T12:57:00',
+        country_name: '',
+        message: 'Delivered' },
+      { checkpoint_time: '2014-01-15T08:07:00',
+        country_name: '',
+        message: 'Out for Delivery, January 15, 2014, 8:07 am, EDMOND, OK 73034' },
+      { checkpoint_time: '2014-01-15T07:57:00',
+        country_name: '',
+        message: 'Sorting Complete, January 15, 2014, 7:57 am, EDMOND, OK 73034' },
+      { checkpoint_time: '2014-01-15T02:42:00',
+        country_name: '',
+        message: 'Arrival at Post Office, January 15, 2014, 2:42 am, EDMOND, OK 73034' },
+      { checkpoint_time: '2014-01-13T00:00:00',
+        country_name: '',
+        message: 'Electronic Shipping Info Received, January 13, 2014' },
+      { checkpoint_time: '2014-01-10T03:48:00',
+        country_name: '',
+        message: 'Departed Shipping Partner Facility, January 10, 2014, 3:48 am, SECAUCUS, NJ 07094' },
+      { checkpoint_time: '2014-01-08T13:50:00',
+        country_name: '',
+        message: 'Arrived Shipping Partner Facility, January 8, 2014, 1:50 pm, SECAUCUS, NJ 07094' }
+      ]
+    });
+
+    it('Expect result === usps', function(done) {
+      Courier.usps('9102999999302024326992', function (error, result) {
+        result = local.jsonStringifyOrdered(result);
+        if (error) {
+          done(error);
+        } else if (result !== usps) {
+          done(new Error(result));
+        } else {
+          done();
+        }
+      });
+    });
+  });
+
   describe('Track @ usps(\'9405903699300184125060\')', function() {
 
     var usps = local.jsonStringifyOrdered({
