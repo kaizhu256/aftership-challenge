@@ -1,4 +1,11 @@
 # Get Tracking info from Courier
+[![travis.ci-org build status](https://api.travis-ci.org/kaizhu256/aftership-challenge.svg?branch=unstable)](https://travis-ci.org/kaizhu256/aftership-challenge?branch=unstable)
+
+## Notes on implementation by kaizhu256
+- revamped lib/index.js to perform asynchronous io for better performance
+- revamped lib/test.js to account for asynchronous tests
+- added automated travis-ci testing
+- most of the implementation code is located in lib/trackAsync.js
 
 The goal of this challenge is to get the tracking information from the courier's system.
 
